@@ -1,21 +1,7 @@
-﻿using shambala_dz_Task_Manager_01_11_2023;
-
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace shambala_dz_Task_Manager_01_11_2023
 {
@@ -31,24 +17,18 @@ namespace shambala_dz_Task_Manager_01_11_2023
             List<string> StProc = new List<string>();
             foreach (Process process in processes)
             {
-                StProc.Add(process.ProcessName.ToString());
+                StProc.Add(process.Id.ToString() + " " + process.ProcessName.ToString());
             }
-           listbox.ItemsSource = StProc;
-            
-
+           // listbox = new ListBox();
+            foreach( string strings in StProc)
+            {
+                listbox.Items.Add(strings);
+            }
         }
-
-        //List<string> strings = new List<string> { "xxx", "yyy", "zzz" };
-        List<string> processes = new List<string>();
-        //Process.GetProcesses;
-        ObservableCollection<process> artists = new ObservableCollection<process>();
-        // считывание процесса
-
         private void LoadProc_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
         private void listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -60,4 +40,8 @@ namespace shambala_dz_Task_Manager_01_11_2023
 //2. Поизучать спецификации и возможности класса Process:
 //	https://learn.microsoft.com/ru-ru/dotnet/api/system.diagnostics.process?view=net-7.0
 //3.Реализовать приложение согласно заданию:
-//Написать десктопную утилиту, выводящую список запущенных процессов. В списке выводится имя процесса и его PID. При клике на элемент списка в доп окне открывается более детальная информация о данном процессе. Список процессов обновляется по клику либо по таймеру. За основу взять пример со стр. 26 урока№ 1.
+//Написать десктопную утилиту, выводящую список запущенных процессов.
+//В списке выводится имя процесса и его PID.
+//При клике на элемент списка в доп окне открывается более детальная информация о данном процессе.
+//Список процессов обновляется по клику либо по таймеру.
+//За основу взять пример со стр. 26 урока№ 1.
