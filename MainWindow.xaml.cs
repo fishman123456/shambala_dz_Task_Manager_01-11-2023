@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,27 +11,52 @@ namespace shambala_dz_Task_Manager_01_11_2023
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Process[] processes = Process.GetProcesses();
+        // список для вывода в листбокс
+        public List<string> stProc = new List<string>();
+        // список для вывода в message box
+        public List<string> stFiveParametr = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
-            Process[] processes = Process.GetProcesses();
-            List<string> StProc = new List<string>();
+            ReadProcess();
+        }
+        public void ReadProcess()
+        {
+
             foreach (Process process in processes)
             {
-                StProc.Add(process.Id.ToString() + " " + process.ProcessName.ToString());
+                stProc.Add(process.Id.ToString() + " " + process.ProcessName.ToString());
+
+                stFiveParametr.Add($" номер : {process.Id.ToString()}\n " +
+                    $"имя процесса:  {process.ProcessName.ToString()}\n" +
+                    $"имя компьютера: {process.MachineName.ToString()}\n" +
+                    $"размер памяти: {process.WorkingSet64.ToString()} \n" +
+                    $"базовый приоритет: {process.BasePriority.ToString()}");
+
             }
-           // listbox = new ListBox();
-            foreach( string strings in StProc)
+            // listbox = new ListBox();
+            foreach (string strings in stProc)
             {
                 listbox.Items.Add(strings);
             }
         }
         private void LoadProc_Click(object sender, RoutedEventArgs e)
         {
-
+            listbox.Items.Clear();
+            ReadProcess();
         }
         private void listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            {
+                int strIdName = listbox.SelectedIndex;
+                MessageBox.Show(stFiveParametr[strIdName]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
     }
