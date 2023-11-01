@@ -11,6 +11,7 @@ namespace shambala_dz_Task_Manager_01_11_2023
     /// </summary>
     public partial class MainWindow : Window
     {
+        // массив процессов
         public Process[] processes = Process.GetProcesses();
         // список для вывода в листбокс
         public List<string> stProc = new List<string>();
@@ -21,6 +22,7 @@ namespace shambala_dz_Task_Manager_01_11_2023
             InitializeComponent();
             ReadProcess();
         }
+        // метод чтения процессов
         public void ReadProcess()
         {
 
@@ -41,11 +43,13 @@ namespace shambala_dz_Task_Manager_01_11_2023
                 listbox.Items.Add(strings);
             }
         }
+        // кнопка обновления процессов
         private void LoadProc_Click(object sender, RoutedEventArgs e)
         {
             listbox.Items.Clear();
             ReadProcess();
         }
+        // щелчек на элементе списка
         private void listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
