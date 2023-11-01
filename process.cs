@@ -16,22 +16,20 @@ namespace shambala_dz_Task_Manager_01_11_2023
         //    // считывание процесса
 
         Process[] processes = Process.GetProcesses();
-
-        //    try
-        //    {
-        //        Console.WriteLine("Id - name - priority");
-        //        foreach (Process process in processes)
-        //        {
-        //            Console.WriteLine($"{process.Id} - {process.ProcessName} - {process.BasePriority}");
-        //        }
-        //        Console.WriteLine($"количество процессов  {processes.Length}");
-        //        Console.ReadLine();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine(ex);
-        //    }
-        //}
-    }
-
+}
+    //    try
+    //    {
+    //        Console.WriteLine("Id - name - priority");
+    //        foreach (Process process in processes)
+    //        {
+    //            Console.WriteLine($"{process.Id} - {process.ProcessName} - {process.BasePriority}");
+    //        }
+    //        Console.WriteLine($"количество процессов  {processes.Length}");
+    //        Console.ReadLine();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Console.WriteLine(ex);
+    //    }
+    //}
 }

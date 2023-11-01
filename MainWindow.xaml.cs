@@ -27,12 +27,15 @@ namespace shambala_dz_Task_Manager_01_11_2023
         public MainWindow()
         {
             InitializeComponent();
-            Name = artists.ToString();
+            Process[] processes = Process.GetProcesses();
+           
+            Name = strings.ToString();
 
         }
 
-        List<string> strings = new List<string> { "xxx", "yyy", "zzz" };
-        Process[] processes = Process.GetProcesses();
+        //List<string> strings = new List<string> { "xxx", "yyy", "zzz" };
+        List<string> processes = new List<string>();
+        //Process.GetProcesses;
         ObservableCollection<process> artists = new ObservableCollection<process>();
         // считывание процесса
 
