@@ -28,8 +28,13 @@ namespace shambala_dz_Task_Manager_01_11_2023
         {
             InitializeComponent();
             Process[] processes = Process.GetProcesses();
-           
-            Name = strings.ToString();
+            List<string> StProc = new List<string>();
+            foreach (Process process in processes)
+            {
+                StProc.Add(process.ProcessName.ToString());
+            }
+           listbox.ItemsSource = StProc;
+            
 
         }
 
